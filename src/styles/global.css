@@ -1,0 +1,89 @@
+:root {
+  --red: #c0392b;
+  --red-deep: #8d2b22;
+  --orange: #e9732c;
+  --paper: #eef0f2;
+  --f-title: 'Chelsea Market', 'Comic Sans MS', 'Trebuchet MS', cursive;
+  --f-hand: 'Gochi Hand', 'Segoe Print', cursive;
+  --f-write: 'Patrick Hand', 'Segoe Print', 'Comic Sans MS', cursive;
+  --f-script: 'Kaushan Script', 'Brush Script MT', cursive;
+  --f-cal: 'Playball', 'Brush Script MT', cursive;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body { background: #1b0d05; overflow: hidden; font-family: var(--f-title); color: var(--red); overscroll-behavior: none; -webkit-tap-highlight-color: transparent; }
+button { font: inherit; color: inherit; border: 0; background: none; padding: 0; cursor: pointer; touch-action: manipulation; }
+button:focus-visible { outline: 4px solid #2b59e0; outline-offset: 4px; }
+h1, p { margin: 0; }
+img { display: block; max-width: none; }
+
+/* Landscape stage, scaled to fit by Stage.jsx */
+.viewport { position: fixed; inset: 0; overflow: hidden; background: radial-gradient(circle at 50% 40%, #3a1c0d, #150a04); }
+.stage { position: absolute; left: 50%; top: 50%; transform-origin: center center; overflow: hidden; background: #fff; border-radius: 14px; box-shadow: 0 30px 90px rgba(0, 0, 0, .55); }
+.screen { position: absolute; inset: 0; animation: screenIn .5s ease both; }
+.page { position: absolute; inset: 0; overflow: hidden; }
+.page-light { background: linear-gradient(135deg, #f5f6f7 0%, #e5e9ec 100%); }
+.page-orange { background: radial-gradient(circle at 30% 40%, #f08236 0%, #e9732c 55%, #dc6420 100%); }
+
+.music-btn { position: fixed; top: 12px; right: 12px; z-index: 100; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(0, 0, 0, .55); color: #fff; border: 2px solid rgba(255, 255, 255, .6); backdrop-filter: blur(4px); }
+.music-btn.on { background: var(--red); }
+
+.img-missing { width: 100%; height: 100%; min-height: 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-align: center; background: repeating-linear-gradient(45deg, #ffe9c7 0 12px, #ffdca8 12px 24px); color: #6b3a22; font-family: var(--f-write); font-size: 20px; border: 2px dashed #6b3a22; padding: 8px; }
+.img-missing small { font-size: 13px; word-break: break-all; }
+
+/* ================= Prettier backgrounds (decor only, layout untouched) ================= */
+.viewport {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 170, 90, .35), transparent 38%),
+    radial-gradient(circle at 85% 80%, rgba(255, 90, 120, .30), transparent 40%),
+    radial-gradient(circle at 50% 40%, #4a2110, #150a04 75%);
+  background-size: 140% 140%, 140% 140%, 100% 100%;
+  animation: bgDrift 16s ease-in-out infinite alternate;
+}
+.viewport::before, .viewport::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, .85) 0 1.6px, transparent 2.4px),
+    radial-gradient(circle, rgba(255, 215, 150, .75) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(255, 255, 255, .6) 0 1px, transparent 2px);
+  background-size: 190px 190px, 260px 260px, 120px 120px;
+  background-position: 0 0, 70px 110px, 40px 60px;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+.viewport::after { background-position: 95px 40px, 10px 170px, 80px 20px; animation-delay: 2s; animation-duration: 5.5s; }
+@keyframes bgDrift { from { background-position: 0% 0%, 100% 100%, 0 0; } to { background-position: 100% 100%, 0% 0%, 0 0; } }
+@keyframes twinkle { from { opacity: .25; } to { opacity: .9; } }
+
+/* soft pastel paper with gentle colour glows and tiny confetti dots */
+.page-light {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 214, 170, .55), transparent 34%),
+    radial-gradient(circle at 88% 82%, rgba(255, 190, 200, .50), transparent 36%),
+    radial-gradient(circle at 80% 15%, rgba(190, 215, 255, .45), transparent 30%),
+    linear-gradient(135deg, #fbf7f3 0%, #eef1f6 100%);
+}
+.page-light::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(233, 115, 44, .22) 0 3px, transparent 4px),
+    radial-gradient(circle, rgba(192, 57, 43, .16) 0 2.5px, transparent 3.5px),
+    radial-gradient(circle, rgba(120, 140, 230, .20) 0 2.5px, transparent 3.5px);
+  background-size: 120px 120px, 170px 170px, 210px 210px;
+  background-position: 10px 20px, 80px 90px, 140px 40px;
+}
+
+/* warm sunburst + glow + sparkle dots on the orange pages */
+.page-orange {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 214, 140, .55), transparent 45%),
+    repeating-conic-gradient(from 0deg at 50% 45%, rgba(255, 255, 255, .07) 0deg 10deg, transparent 10deg 20deg),
+    radial-gradient(circle at 30% 40%, #f48a3c 0%, #e9732c 55%, #d85f1c 100%);
+}
+.page-orange::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, .55) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(255, 240, 200, .45) 0 3px, transparent 4px);
+  background-size: 110px 110px, 180px 180px;
+  background-position: 20px 30px, 90px 100px;
+}

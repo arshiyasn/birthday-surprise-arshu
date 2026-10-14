@@ -1,0 +1,111 @@
+/* ---------- shared bits ---------- */
+.gingham {
+  position: absolute; background-color: #fff;
+  background-image: linear-gradient(90deg, rgba(201, 72, 61, .62) 50%, transparent 50%), linear-gradient(rgba(201, 72, 61, .62) 50%, transparent 50%);
+  background-size: 18px 18px;
+}
+.edge-l { left: 0; top: 0; bottom: 0; width: 22px; }
+.edge-r { right: 0; top: 0; bottom: 0; width: 26px; }
+.blob { position: absolute; left: 0; top: 0; width: 300px; height: 260px; pointer-events: none; }
+.arc { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.arc-text { font-family: var(--f-title); fill: var(--red); }
+.sparkle { width: 26px; height: 26px; display: inline-block; vertical-align: top; }
+.pill {
+  min-width: 170px; padding: 8px 34px 10px; border-radius: 999px; background: var(--red); color: #fff; font: 400 30px var(--f-title); letter-spacing: .04em;
+  border: 4px solid #fff; box-shadow: 0 0 0 3px var(--red), 0 8px 0 var(--red-deep); transition: transform .12s, box-shadow .12s;
+}
+.pill:active { transform: translateY(6px); box-shadow: 0 0 0 3px var(--red), 0 2px 0 var(--red-deep); }
+.pill-bottom { position: absolute; left: 0; right: 0; bottom: 52px; margin: auto; width: fit-content; }
+.arrow-btn { position: absolute; right: 28px; bottom: 26px; width: 54px; height: 54px; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; box-shadow: 0 5px 0 var(--red-deep); z-index: 6; }
+.arrow-btn:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--red-deep); }
+.corner-kid { position: absolute; right: 36px; bottom: -8px; width: 140px; }
+.red-star, .camera, .bow, .squiggles, .balloons { position: absolute; }
+
+/* ---------- password ---------- */
+.torn { position: absolute; left: 0; bottom: 0; width: 300px; height: 260px; }
+.pass-heart { position: absolute; left: 56px; top: 100px; width: 400px; height: 360px; filter: drop-shadow(0 12px 14px rgba(90, 40, 0, .35)); }
+.gold-heart { position: relative; width: 100%; height: 100%; }
+.gold-heart svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.gold-heart-art { position: absolute; left: 24%; top: 14%; width: 52%; height: 60%; display: flex; justify-content: center; align-items: flex-end; overflow: hidden; }
+.gold-heart-art .kid { height: 118%; width: auto; margin-bottom: -18%; }
+.pass-pad { position: absolute; left: 540px; top: 54px; width: 340px; text-align: center; }
+.pass-label { font: 400 28px var(--f-hand); color: #fff7ec; margin-bottom: 12px; letter-spacing: .02em; }
+.pass-boxes { display: flex; gap: 10px; justify-content: center; }
+.pass-box { width: 56px; height: 56px; display: grid; place-items: center; background: #eef0fb; border: 3px solid #9aa6df; border-radius: 8px; font: 700 30px var(--f-title); color: var(--red); transition: transform .15s; }
+.pass-box.filled { transform: translateY(-3px); background: #fff; }
+.keypad { display: grid; grid-template-columns: repeat(3, 76px); gap: 16px 20px; justify-content: center; margin-top: 26px; }
+.key { width: 76px; height: 76px; border-radius: 50%; background: #e9ecfb; border: 4px solid #fff; box-shadow: 0 0 0 3px #9aa6df, 0 6px 0 3px #7d8fd8; font: 400 34px var(--f-title); color: var(--red); transition: transform .1s, box-shadow .1s; }
+.key:active, .key.down { transform: translateY(5px); box-shadow: 0 0 0 3px #9aa6df, 0 1px 0 3px #7d8fd8; background: #fff; }
+
+/* ---------- question pages ---------- */
+.q-char { position: absolute; left: 50%; top: 160px; width: 220px; transform: translateX(-50%); }
+.q-char.with-sub { top: 118px; width: 200px; }
+.q-sub { position: absolute; left: 0; right: 0; top: 408px; text-align: center; font: 400 40px var(--f-title); color: var(--red); }
+.q-buttons { position: absolute; left: 0; right: 0; bottom: 44px; display: flex; justify-content: center; gap: 30px; }
+
+/* ---------- gifts ---------- */
+.gift-hit { position: absolute; width: 150px; height: 150px; transform: translate(-50%, -50%) rotate(var(--r)); transition: transform .2s ease, opacity .4s, filter .4s; animation: giftPop .6s cubic-bezier(.3, 1.3, .5, 1) var(--d) backwards; }
+.gift-hit:hover { transform: translate(-50%, -50%) rotate(var(--r)) scale(1.1); }
+.gift-hit.opened { opacity: .35; filter: saturate(.6); }
+.gift-svg { width: 100%; height: 100%; filter: drop-shadow(0 12px 8px rgba(120, 40, 40, .25)); }
+.gift-cta { position: absolute; left: 56px; bottom: 44px; font: 400 46px var(--f-title); transform: rotate(-4deg); }
+
+/* ---------- birthday ---------- */
+.bday-text { position: absolute; left: 76px; top: 150px; width: 520px; }
+.bday-happy { font: 400 32px Georgia, 'Times New Roman', serif; letter-spacing: .18em; color: var(--red); }
+.bday-word { font: 400 118px var(--f-cal); color: var(--red); line-height: 1; margin: -6px 0 6px -4px; }
+.bday-line { font: 400 21px var(--f-hand); width: 380px; color: var(--red); line-height: 1.3; }
+.ribbon { display: inline-block; margin-top: 22px; background: var(--red); color: #fff; font: 400 26px var(--f-title); padding: 8px 44px; clip-path: polygon(0 0, 100% 0, 94% 50%, 100% 100%, 0 100%, 6% 50%); }
+.polaroid-wrap { position: absolute; right: 70px; top: 44px; width: 270px; height: 320px; }
+.polaroid-back { position: absolute; inset: 16px -16px -16px 16px; background: var(--red); border-radius: 4px; transform: rotate(3deg); }
+.polaroid { position: absolute; inset: 0; background: #fff; padding: 14px 14px 46px; transform: rotate(-3deg); box-shadow: 0 8px 22px rgba(0, 0, 0, .25); }
+.polaroid-img { width: 100%; height: 100%; object-fit: cover; }
+.clip { position: absolute; top: -20px; left: 34px; width: 20px; height: 56px; border: 3px solid #9aa4aa; border-radius: 10px; z-index: 2; }
+.sp-b { position: absolute; left: 36px; bottom: 80px; width: 64px; height: 64px; }
+.sp-c { position: absolute; left: 104px; bottom: 44px; width: 32px; height: 32px; }
+
+/* ---------- make a wish ---------- */
+.wish-title { position: absolute; left: 0; right: 0; top: 36px; text-align: center; font: 400 80px var(--f-title); color: var(--red); letter-spacing: .02em; }
+.cake-wrap { position: absolute; left: 50%; margin-left: -235px; top: 150px; width: 470px; }
+.cake { width: 100%; overflow: visible; }
+.wish-side { position: absolute; left: 150px; top: 330px; font: 400 36px var(--f-hand); color: var(--red); transform: rotate(-75deg); transform-origin: left top; }
+.squiggles { left: 40px; bottom: 24px; width: 190px; }
+.balloons { right: 160px; top: 290px; width: 120px; }
+
+/* ---------- memories ---------- */
+.mem-gingham { left: 0; right: 0; top: 170px; bottom: 0; opacity: .8; }
+.mem-title { position: absolute; left: 0; right: 0; top: 34px; display: flex; justify-content: center; gap: 8px; }
+.mem-letter { font-size: 78px; line-height: 1; padding: 6px 12px 8px; box-shadow: 2px 4px 0 rgba(0, 0, 0, .18); transform: rotate(var(--r)); animation: dropIn .5s cubic-bezier(.3, 1.4, .5, 1) var(--d) both; }
+.mem-string { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.mem-photo { position: absolute; width: 150px; transform-origin: top center; transform: translateX(-50%) rotate(var(--r)); animation: hangIn .8s ease var(--d) backwards, sway 4.5s ease-in-out calc(var(--d) + .8s) infinite; }
+.pin { position: absolute; top: -20px; left: 50%; margin-left: -7px; width: 14px; height: 38px; background: #d9b27c; border: 2px solid #a37a45; border-radius: 3px; z-index: 2; }
+.mem-frame { padding: 10px; background-color: #fff; background-image: linear-gradient(90deg, rgba(201, 72, 61, .7) 50%, transparent 50%), linear-gradient(rgba(201, 72, 61, .7) 50%, transparent 50%); background-size: 14px 14px; box-shadow: 0 8px 14px rgba(0, 0, 0, .25); }
+.mem-inner { background: #fff; padding: 6px; }
+.mem-img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.mem-inner .img-missing { aspect-ratio: 4 / 5; height: auto; font-size: 15px; }
+
+/* ---------- letter ---------- */
+.letter-strip { right: 0; top: 0; bottom: 0; width: 170px; box-shadow: -6px 0 12px rgba(0, 0, 0, .12); }
+.letter-title { position: absolute; left: 70px; top: 26px; font: 400 60px var(--f-script); color: var(--red); }
+.letter-dot { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: var(--red); margin-left: 10px; vertical-align: top; }
+.letter-box { position: absolute; left: 60px; top: 116px; width: 690px; bottom: 34px; overflow-y: auto; scrollbar-width: none; padding-right: 10px; font: 400 23px/34px var(--f-write); color: #555; background: repeating-linear-gradient(transparent 0 33px, #d6dbde 33px 34px); }
+.letter-box::-webkit-scrollbar { display: none; }
+.letter-box p { margin-bottom: 34px; }
+.letter-greet { font-size: 30px; color: #444; }
+.letter-sign { font: 400 36px var(--f-script); color: var(--red); }
+.letter-kid { top: 40px; bottom: auto; right: 20px; width: 120px; z-index: 3; }
+
+/* ---------- cutie in frame ---------- */
+.frame-title { position: absolute; left: 0; right: 0; top: 22px; text-align: center; font: 400 44px var(--f-title); color: var(--red); }
+.frame-photo { position: absolute; left: 50%; margin-left: -300px; top: 86px; width: 600px; height: 450px; padding: 10px; background: #fff; box-shadow: 0 12px 30px rgba(0, 0, 0, .22); overflow: hidden; }
+.frame-img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- collage + final ---------- */
+.collage-page { background: #222; }
+.collage-grid { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); }
+.collage-cell { overflow: hidden; animation: cellPop .6s ease var(--d) backwards; }
+.collage-img { width: 100%; height: 100%; object-fit: cover; }
+.collage-text { position: absolute; left: 0; right: 0; top: 40%; text-align: center; font: 400 92px var(--f-cal); color: #fff; text-shadow: 0 4px 16px rgba(0, 0, 0, .65); transform: rotate(-3deg); animation: textSlide .9s ease .8s backwards; }
+.collage-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 16px; background: #d94b3d; }
+.final-text { position: absolute; left: 130px; right: 210px; top: 120px; text-align: center; font: 400 66px/1.25 var(--f-title); color: var(--red); }
+.replay-btn { position: absolute; left: 50px; bottom: 30px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 22px; border-radius: 999px; background: #fff; border: 3px solid var(--red); font: 400 22px var(--f-title); box-shadow: 0 4px 0 var(--red-deep); }
