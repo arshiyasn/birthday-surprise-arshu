@@ -10,7 +10,7 @@
 //    public/audio/deema.mp3                      -> background music
 // ==================================================================
 const content = {
-  name: 'achu',           // shown on the red ribbon of the birthday card
+  name: 'pooja',           // shown on the red ribbon of the birthday card
   passcode: '2006',           // any mix of 0-9, * and #. Boxes follow its length.
 
   music: { src: 'audio/deema.mp3', volume: 0.6 },
